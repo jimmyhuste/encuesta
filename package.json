@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon"
+    "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jimmy Huste",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
