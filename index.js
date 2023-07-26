@@ -42,13 +42,15 @@ const allowCors = fn => async (req, res) => {
 
 const handler = (req, res) => {
   const d = new Date()
-  res.end(d.toString())
+  res.json({ message: "Api is running!", status: "ok" })
 }
 
-module.exports = allowCors(handler)
+
 
 
 
 app.listen(PUERTO, () => {
   console.log("App is runing on port: ", PUERTO)
 });
+
+module.exports = allowCors(handler)
