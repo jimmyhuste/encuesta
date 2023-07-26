@@ -12,7 +12,7 @@ const data  = {
 // Configura los parámetros de conexión a la base de datos
 const connection = mysql.createConnection({
   host: data.HOST,
-  user: data.USER,
+  user: 'root',
   password: data.PASSWORD,
   database: data.NAME,
   port: data.PORT
