@@ -1,13 +1,23 @@
 {
     "version": 2,
-    "builds":[{
+    "builds": [
+      {
         "src": "./index.js",
-        "use": "@avercel/node"}
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      },
+      {
+        "functions": {
+          "users/**/*.js": {
+            "maxDuration": 30
+          }
         }
+      }
     ]
-}
+  }
+  
