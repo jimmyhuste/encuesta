@@ -24,16 +24,8 @@ app.get('/', (req, res) => {
 });
 
 // Habilita CORS con opciones personalizadas
-app.use(cors());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Headers, *, Access-Control-Allow-Origin', 'Origin, X-Requested-with, Content_Type,Accept,Authorization', 'https://encuesta-nu.vercel.app');
-  if (req.method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', 'PUT,POST,PATCH,DELETE,GET');
-    return res.status(200).json({});
-  }
-  next();
-});
+app.use(cors({origin: "https://encuesta-nu.vercel.app/"}));
 
 
 app.listen(PUERTO, () => {
