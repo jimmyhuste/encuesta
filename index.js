@@ -24,14 +24,15 @@ app.get('/', (req, res) => {
 });
 
 // Configura opciones para CORS
-const corsOptions = {
-    origin: 'http://localhost:5173/', // Reemplaza con la URL de tu frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-    allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
-  };
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // o establece aquí el origen permitido en lugar de '*'
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
   
   // Habilita CORS con opciones personalizadas
-  app.use(cors(corsOptions));
+  app.use(cors());
 
 app.listen(PUERTO, ()=>{
     console.log("App is runing on port: ", PUERTO)
