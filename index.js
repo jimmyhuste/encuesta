@@ -23,15 +23,17 @@ app.get('/', (req, res) => {
   res.json({message: "Api is running!", status: "ok"})
 });
 
-// Configura opciones para CORS
-const corsOptions = {
-    origin: 'https://encuesta-front.vercel.app/', // Reemplaza con la URL de tu frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-    allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
-  };
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://encuesta-front.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
+  
   
   // Habilita CORS con opciones personalizadas
-  app.use(cors(corsOptions));
+  app.use(cors());
 
 app.listen(PUERTO, ()=>{
     console.log("App is runing on port: ", PUERTO)
