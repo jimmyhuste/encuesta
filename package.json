@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon -o --watch",
-    "build": "yarn run index.js"
+    "start": "nodemon -o --watch"
+   
   },
   "keywords": [],
   "author": "",
