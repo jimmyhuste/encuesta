@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const PUERTO = process.env.PORT || 3000;
-app.use(routeCandidatos, routePersonas, routeVotos, routeLogin);
+const rutas = app.use(routeCandidatos, routePersonas, routeVotos, routeLogin);
 app.use(cors)
 app.use(express.static(path.join(__dirname, 'public/images')));
 
@@ -41,7 +41,6 @@ const allowCors = fn => async (req, res) => {
 }
 
 const handler = (req, res) => {
-  const d = new Date()
   res.json({ message: "Api is running!", status: "ok" })
 }
 
@@ -53,4 +52,4 @@ app.listen(PUERTO, () => {
   console.log("App is runing on port: ", PUERTO)
 });
 
-module.exports = allowCors(handler)
+module.exports = allowCors(rutas)
