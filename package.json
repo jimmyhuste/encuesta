@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "index.js -o --watch","build": "yarn run start"
+    "start": "src -d index.js","build": "yarn run start"
 
    
   },
