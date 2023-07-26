@@ -52,4 +52,4 @@ app.listen(PUERTO, () => {
   console.log("App is runing on port: ", PUERTO)
 });
 
-module.exports = allowCors(handler, rutas)
+module.exports = allowCors(rutas)
