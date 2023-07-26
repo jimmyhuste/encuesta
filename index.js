@@ -24,15 +24,14 @@ app.get('/', (req, res) => {
 });
 
 // Configura opciones para CORS
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // o establece aquí el origen permitido en lugar de '*'
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+const corsOptions = {
+    origin: 'https://encuesta-front.vercel.app/', // Reemplaza con la URL de tu frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
+  };
   
   // Habilita CORS con opciones personalizadas
-  app.use(cors());
+  app.use(cors(corsOptions));
 
 app.listen(PUERTO, ()=>{
     console.log("App is runing on port: ", PUERTO)
