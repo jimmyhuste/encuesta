@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "build": "yarn install"
+    "test": "jest",
+    "start": "nodemon -o --watch",
+    "build": "yarn run index.js"
   },
   "keywords": [],
   "author": "",
