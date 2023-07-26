@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const PUERTO = process.env.PORT || 3000;
- app.use('/api', routeCandidatos, routePersonas, routeVotos, routeLogin);
+ app.use( routeCandidatos, routePersonas, routeVotos, routeLogin);
 app.use(cors)
 app.use(express.static(path.join(__dirname, 'public/images')));
 
