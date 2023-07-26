@@ -10,13 +10,6 @@
       {
         "src": "/(.*)",
         "dest": "/"
-      },
-      {
-        "functions": {
-          "users/**/*.js": {
-            "maxDuration": 30
-          }
-        }
       }
     ]
   }
