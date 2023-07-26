@@ -18,6 +18,11 @@ const PUERTO = process.env.PORT || 3000;
 app.use(cors)
 app.use(express.static(path.join(__dirname, 'public/images')));
 
+
+app.get('/', (req, res) => {
+  res.json({message: "Api is running!", status: "ok"})
+});
+
 // Configura opciones para CORS
 const corsOptions = {
     origin: 'http://localhost:5173/', // Reemplaza con la URL de tu frontend
