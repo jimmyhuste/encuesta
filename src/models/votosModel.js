@@ -5,7 +5,10 @@ require('dotenv').config();
 const secret_key = process.env.SECRET_KEY;
 // Función para generar un token para el id de la persona que ha votado
 const generateToken = (id_persona) => {
-  const tokenVoto = jwt.sign({ id_persona }, secret_key, { expiresIn: '1h' }); // 'secreto' debería ser una clave secreta más segura en producción
+  const segundosPorDia = 24 * 60 * 60; // 1 día = 24 horas * 60 minutos * 60 segundos
+  const diasExpiracion = 30;
+  const duracionExpiracion = segundosPorDia * diasExpiracion;
+  const tokenVoto = jwt.sign({ id_persona }, secret_key, { expiresIn: duracionExpiracion });
   return tokenVoto;
 };
 
